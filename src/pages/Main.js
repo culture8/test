@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, BrowserRouter } from "react-router-dom";
 import {
   imageHeight,
   imageWidth,
@@ -25,6 +25,7 @@ const Main = (props) => {
     <>
       <div style={containerStyle.main}>
         <div style={containerStyle.sub}>
+          <BrowserRouter basename="/" />
           <Link style={buttonStyle.main} to="/page/1"></Link>
           <img
             style={{
