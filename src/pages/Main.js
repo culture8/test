@@ -25,7 +25,6 @@ const Main = (props) => {
     <>
       <div style={containerStyle.main}>
         <div style={containerStyle.sub}>
-          <BrowserRouter basename="/" />
           <Link style={buttonStyle.main} to="/page/1"></Link>
           <img
             style={{
