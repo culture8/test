@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   imageHeight,
@@ -21,14 +21,14 @@ const First = (props) => {
   const goHome = () => {
     navigate("/"); // '/'로 이동
   };
+
+  //level9일때 로딩화면이므로 거기서 navigate result로 이동
+
   const onClickBtn = (e) => {
     setResult([...result, e.text]);
     goNext();
   };
   const onClickBtn2 = (e) => {
-    // navigate("/page/2", {
-    //   state: { result: "S형" },
-    // });
     setResult([...result, e.text]);
     goNext();
   };
@@ -51,7 +51,20 @@ const First = (props) => {
     );
     count = [];
   }
-  console.log("answer:", answer.join(""));
+  //answer 하나로 합치기
+  const totalResult = answer.join("");
+  const goResult = () => {
+    if (level === 9) {
+      navigate("/result", {
+        state: { totalResult },
+      });
+    }
+  };
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      goResult();
+    }, 1000);
+  }, [level]);
   return (
     <>
       <div style={containerStyle.main}>
@@ -64,17 +77,22 @@ const First = (props) => {
             src={imageArray[level].src}
             alt="face"
           />
-          <button style={buttonStyle.goBack} onClick={goHome}></button>
+          <button
+            style={buttonStyle.goBack}
+            onClick={level === 0 ? goHome : goBack}
+          ></button>
           <button
             style={buttonStyle.first}
-            onClick={() => {
-              onClickBtn(resultType[level * 2]);
-            }}
+            onClick={() =>
+              level === 9 ? console.log("a") : onClickBtn(resultType[level * 2])
+            }
           ></button>
           <button
             style={buttonStyle.second}
             onClick={() => {
-              onClickBtn2(resultType[level * 2 + 1]);
+              level === 9
+                ? console.log("a")
+                : onClickBtn2(resultType[level * 2 + 1]);
             }}
           ></button>
         </div>

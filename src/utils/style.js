@@ -54,4 +54,12 @@ export const buttonStyle = {
     backgroundColor: "transparent",
     borderColor: "transparent",
   },
+  goHome: {
+    position: "absolute",
+    width: imageWidth * `${300 / 1080}`,
+    height: imageHeight * `${100 / 1920}`,
+    bottom: (imageHeight * 66) / 1920,
+    backgroundColor: "transparent",
+    borderColor: "transparent",
+  },
 };
