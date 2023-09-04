@@ -62,4 +62,13 @@ export const buttonStyle = {
     backgroundColor: "transparent",
     borderColor: "transparent",
   },
+  test: {
+    position: "absolute",
+    width: imageWidth * `${200 / 1080}`,
+    height: imageHeight * `${66 / 1920}`,
+    bottom: (imageHeight * 66) / 1920,
+    right: imageWidth / 1080,
+    backgroundColor: "transparent",
+    borderColor: "transparent",
+  },
 };

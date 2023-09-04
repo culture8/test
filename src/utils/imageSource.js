@@ -17,4 +17,5 @@ export const imageArray = [
   { id: 15, src: require("../assets/2x/Artboard 17@2x.png") },
   { id: 16, src: require("../assets/2x/Artboard 18@2x.png") },
   { id: 17, src: require("../assets/2x/Artboard 19@2x.png") },
+  { id: 18, src: require("../assets/2x/homeButton@2x.png") },
 ];

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, text } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   imageHeight,
@@ -17,6 +17,7 @@ const First = (props) => {
   };
   const goBack = () => {
     setLevel(level - 1); // 바로 이전 페이지로 이동, '/main' 등 직접 지정도 당연히 가능
+    result.pop();
   };
   const goHome = () => {
     navigate("/"); // '/'로 이동
@@ -51,6 +52,7 @@ const First = (props) => {
     );
     count = [];
   }
+  console.log("level:", level);
   //answer 하나로 합치기
   const totalResult = answer.join("");
   const goResult = () => {
@@ -65,6 +67,9 @@ const First = (props) => {
       goResult();
     }, 1000);
   }, [level]);
+  console.log("answer:", answer);
+  console.log("result:", result);
+  console.log("totalResult:", totalResult);
   return (
     <>
       <div style={containerStyle.main}>
@@ -95,6 +100,23 @@ const First = (props) => {
                 : onClickBtn2(resultType[level * 2 + 1]);
             }}
           ></button>
+          {level !== 9 && (
+            <button
+              style={buttonStyle.test}
+              onClick={() => {
+                goHome();
+              }}
+            >
+              <img
+                style={{
+                  width: imageWidth * `${200 / 1080}`,
+                  height: imageHeight * `${66 / 1920}`,
+                }}
+                src={imageArray[18].src}
+                alt="face"
+              />
+            </button>
+          )}
         </div>
       </div>
     </>
