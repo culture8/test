@@ -60,7 +60,7 @@ const Title = styled.h1`
   color: black;
   font-size: 36px;
   @media ${device.mobile} {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 

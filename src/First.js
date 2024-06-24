@@ -45,7 +45,6 @@ const Row = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   max-width: 1200px;
 `;
 
@@ -69,7 +68,7 @@ const Title = styled.h1`
   font-size: 36px;
 
   @media ${device.mobile} {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 
